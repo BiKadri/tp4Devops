@@ -1,3 +1,4 @@
+name: Build
 # Define when the workflow should be triggered
 on:
   push:
