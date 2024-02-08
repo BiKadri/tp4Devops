@@ -1,0 +1,24 @@
+# Define when the workflow should be triggered
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [*]
+
+# Define jobs for the workflow
+jobs:
+  # Job: Deploy
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Steps for the deploy job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: upload code
+        uses: actions/upload-pages-artifact@v2
+
+      - name: Deploy to production
+        uses: actions/deploy-pages@v3
